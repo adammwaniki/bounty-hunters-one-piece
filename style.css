@@ -57,25 +57,31 @@ header a{
     color: #fffff3;
     text-shadow: 0 5px 10px #0004; /*making the text stand out*/
 }
-.carousel .list .item .content .title,
-.carousel .list .item .content .topic{
+.carousel .list .item .content .criminal-name,
+.carousel .list .item .content .bounty-amount{
     font-weight: bold;
     font-size: 5em;
     line-height: 1.3em;
 }
-.carousel .list .item .content .topic{
+.carousel .list .item .content .wanted-status{
+    font-weight: bolder;
+    font-size: 3.2em;
+    line-height: 1.3em;
+}
+.carousel .list .item .content .bounty-amount{
     color: #ff0000;
+    text-shadow: 0 5px 10px #ffe599
 }
 .carousel .list .item .content .formDiv .comment-form,
-.carousel .list .item .content .formDiv .comment-form .buttons{
+.carousel .list .item .content .formDiv .buttons{
     display: grid;
-    grid-template-columns: 140px; /*making the form and the button have a nice column height although initially i wanted them to be side by side by using repeat(2,140px) but this didn't work because the button is a child of the form so the alignment was bothering me*/
+    grid-template-columns: repeat(2, 140px); /*making the form and the button have a nice column height although initially i wanted them to be side by side by using repeat(2,140px) but this didn't work because the button is a child of the form so the alignment was bothering me*/
     grid-template-rows: 40px;
     gap: 5px;
     margin-top: 20px;
 }
 
-.carousel .list .item .content .formDiv .comment-form button{
+.carousel .list .item .content .formDiv button{
     background-color: transparent;
     color: #eee;
     border: 1px solid #eee;
@@ -89,7 +95,8 @@ header a{
     width: max-content; /*allowing it to be scalable according to the content inside*/
     z-index: 100; /*so that it overlaps the items in the class list*/
     display: flex; /*so that the items are in the same row*/
-    gap: 20px; /*distance of items*/
+    gap: 20px; /*distance between items*/
+    overflow: hidden; /*we don't want to see any overflow from the parent div*/
 }
 .thumbnail .item{/*for the content inside the thumbnials*/
     width: 150px;
@@ -113,6 +120,7 @@ header a{
     font-weight: bold;
 }
 /*arrow buttons*/
+/* i'll come back to this later
 .arrows{
     position: absolute;
     top: 80%;
@@ -133,9 +141,10 @@ header a{
     color: #fff;
     font-weight: bold;
     font-size: large;
-    transition: .5s; /*i will find a way to handle this in the DOM instead*/
+    transition: .5s; i will find a way to handle this in the DOM instead
 }
-.arrows button:hover{ /*i will find a way to handle this in the DOM instead as well*/
+.arrows button:hover{ i will find a way to handle this in the DOM instead as well
     background-color: #eee;
     color: #555;
 }
+*/
