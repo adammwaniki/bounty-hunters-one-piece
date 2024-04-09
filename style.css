@@ -1,0 +1,82 @@
+* {
+    font-family: "Prata", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+body {
+    background-color: #000;
+    color: #eee;
+    margin: 0;
+    font-size: 12px;
+}
+a{
+    text-decoration: none;
+    color: #eee;
+}
+header{
+    width: 1140px; /*it will default to this width on large screens*/
+    max-width: 80%; /*it will not be more than 80% of the screen on smaller screens*/
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative; /*this will allow it to move to the front of the carousel*/
+    z-index: 100; /*this will place it above the carousel*/
+    font-size: 20px;
+}
+header a{
+    margin-right: 40px; /*making space between the navbar items*/
+}
+/*carousel styling*/
+.carousel{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /*this one restricts all of our page data to just the home screen in case my images were too many and created a need for scrolling down the page*/
+    margin-top: -50px; /*this is because the header height is 50px which was giving an unsighly black bar so this will allow the image to cover from the top*/
+    position: relative; /*aligning the items relative to the position of the carousel class instead of the body*/
+}
+.carousel .list .item{
+    position: absolute;
+    inset: 0 0 0 0; /*defining the postion with zero distance from the top, left, bottom and right*/
+}
+.carousel .list .item img{
+    /*making the images occupy the entire screen*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*fixing the distortion of the image when it fills the screen*/
+}
+.carousel .list .item .content{
+    position: absolute;
+    top: 20%; /*a position 20% away from the item*/
+    width: 1140px; /*width on large screens*/
+    max-width: 80%; /*for smaller screens the width will be 80%*/
+    left: 50%;
+    transform: translateX(-50%); /*aligning the content*/
+    padding-right: 30%; /*to shrink the element a bit*/
+    box-sizing: border-box; /*this will prevent the size of the width from changing since we have used width and padding*/
+    color: #fffff3;
+    text-shadow: 0 5px 10px #0004; /*making the text stand out*/
+}
+.carousel .list .item .content .title,
+.carousel .list .item .content .topic{
+    font-weight: bold;
+    font-size: 5em;
+    line-height: 1.3em;
+}
+.carousel .list .item .content .topic{
+    color: #ff0000;
+}
+.carousel .list .item .content .formDiv .comment-form,
+.carousel .list .item .content .formDiv .comment-form .buttons{
+    display: grid;
+    grid-template-columns: 140px; /*making the form and the button have a nice column height although initially i wanted them to be side by side by using repeat(2,140px) but this didn't work because the button is a child of the form so the alignment was bothering me*/
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.carousel .list .item .content .formDiv .comment-form button{
+    background-color: transparent;
+    color: #eee;
+    border: 1px solid #eee;
+}
