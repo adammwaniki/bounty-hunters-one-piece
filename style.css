@@ -35,17 +35,17 @@ header a{
     margin-top: -50px; /*this is because the header height is 50px which was giving an unsighly black bar so this will allow the image to cover from the top*/
     position: relative; /*aligning the items relative to the position of the carousel class instead of the body*/
 }
-.carousel .list .item{
+.carousel .list .list-item{
     position: absolute;
     inset: 0 0 0 0; /*defining the postion with zero distance from the top, left, bottom and right*/
 }
-.carousel .list .item img{
+.carousel .list .list-item img{
     /*making the images occupy the entire screen*/
     width: 100%;
     height: 100%;
     object-fit: cover; /*fixing the distortion of the image when it fills the screen*/
 }
-.carousel .list .item .content{
+.carousel .list .list-item .content{
     position: absolute;
     top: 20%; /*a position 20% away from the item*/
     width: 1140px; /*width on large screens*/
@@ -57,23 +57,23 @@ header a{
     color: #fffff3;
     text-shadow: 0 5px 10px #0004; /*making the text stand out*/
 }
-.carousel .list .item .content .criminal-name,
-.carousel .list .item .content .bounty-amount{
+.carousel .list .list-item .content .criminal-name,
+.carousel .list .list-item .content .bounty-amount{
     font-weight: bold;
     font-size: 5em;
     line-height: 1.3em;
 }
-.carousel .list .item .content .wanted-status{
+.carousel .list .list-item .content .wanted-status{
     font-weight: bolder;
     font-size: 3.2em;
     line-height: 1.3em;
 }
-.carousel .list .item .content .bounty-amount{
+.carousel .list .list-item .content .bounty-amount{
     color: #ff0000;
     text-shadow: 0 5px 10px #ffe599
 }
-.carousel .list .item .content .formDiv .comment-form,
-.carousel .list .item .content .formDiv .buttons{
+.carousel .list .list-item .content .formDiv .comment-form,
+.carousel .list .list-item .content .formDiv .buttons{
     display: grid;
     grid-template-columns: repeat(2, 140px); /*making the form and the button have a nice column height although initially i wanted them to be side by side by using repeat(2,140px) but this didn't work because the button is a child of the form so the alignment was bothering me*/
     grid-template-rows: 40px;
@@ -81,7 +81,7 @@ header a{
     margin-top: 20px;
 }
 
-.carousel .list .item .content .formDiv button{
+.carousel .list .list-item .content .formDiv button{
     background-color: transparent;
     color: #eee;
     border: 1px solid #eee;
