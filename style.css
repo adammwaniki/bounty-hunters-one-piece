@@ -80,3 +80,62 @@ header a{
     color: #eee;
     border: 1px solid #eee;
 }
+
+/*thumbnail*/
+.thumbnail{
+    position: absolute;
+    bottom: 50px; /*it will be 50px from the bottom of the carousel*/
+    left: 50%; /*it will only be on one half the screeni.e. on the right*/
+    width: max-content; /*allowing it to be scalable according to the content inside*/
+    z-index: 100; /*so that it overlaps the items in the class list*/
+    display: flex; /*so that the items are in the same row*/
+    gap: 20px; /*distance of items*/
+}
+.thumbnail .item{/*for the content inside the thumbnials*/
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0; /*so that the size doesn't shrink on small screens*/
+    position: relative; /*so that the content inside it can rely on it to move positions*/
+}
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.thumbnail .item .content{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+.thumbnail .item .content .title{
+    font-weight: bold;
+}
+/*arrow buttons*/
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.arrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    font-family: inherit;
+    color: #fff;
+    font-weight: bold;
+    font-size: large;
+    transition: .5s; /*i will find a way to handle this in the DOM instead*/
+}
+.arrows button:hover{ /*i will find a way to handle this in the DOM instead as well*/
+    background-color: #eee;
+    color: #555;
+}
