@@ -39,12 +39,14 @@ header a{
     position: absolute;
     inset: 0 0 0 0; /*defining the postion with zero distance from the top, left, bottom and right*/
 }
+
 .carousel .list .list-item img{
     /*making the images occupy the entire screen*/
     width: 100%;
     height: 100%;
     object-fit: cover; /*fixing the distortion of the image when it fills the screen*/
 }
+
 .carousel .list .list-item .content{
     position: absolute;
     top: 20%; /*a position 20% away from the item*/
@@ -117,3 +119,9 @@ header a{
     object-fit: cover;
     border-radius: 20px;
 }
+/*
+.active, .thumbnail .item img:hover{
+    background-color: #ff0000;
+
+}
+*/ /*let me see if i can do this in js*/
