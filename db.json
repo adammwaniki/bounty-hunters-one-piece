@@ -4,6 +4,127 @@
         "wanted-status" : "Dead or Alive",
         "name" : "Gol. D. Roger",
         "amount" : 5564800000,
-        "image" : "./images/Roger.png"
+        "image" : "./images/Roger.png",
+        "crimes" : ["Piracy", "Conspiracy", "Treason", "Smuggling"]
+    },
+    {
+        "id" : "2",
+        "wanted-status" : "Only Alive",
+        "name" : "Monkey. D. Luffy",
+        "amount" : 3000000000,
+        "image" : "./images/Luffy.png",
+        "crimes" : ["Piracy", "Assault", "Trespassing"]
+    },
+    {
+        "id" : "3",
+        "wanted-status" : "Only Dead",
+        "name" : "Roronoa Zoro",
+        "amount" : 1111000000,
+        "image" : "./images/Zoro.png",
+        "crimes" : ["Assault", "Murder", "Property damage"]
+    },
+    {
+        "id" : "4",
+        "wanted-status" : "Dead or Alive",
+        "name" : "Shanks",
+        "amount" : 4048900000,
+        "image" : "./images/Shanks.png",
+        "crimes" : ["Piracy", "Theft", "Extortion"]
+    },
+    {
+        "id" : "5",
+        "wanted-status" : "Only Dead",
+        "name" : "Edward Newgate",
+        "amount" : 5046000000,
+        "image" : "./images/Whitebeard.png",
+        "crimes" : ["Piracy", "Genocide"]
+    },
+    {
+        "id" : "6",
+        "wanted-status" : "Dead or Alive",
+        "name" : "Kaido",
+        "amount" : 4611100000,
+        "image" : "./images/Kaido.png",
+        "crimes" : ["Piracy", "Drug trafficking", "Kidnapping"]
+    },
+    {
+        "id" : "7",
+        "wanted-status" : "Only Alive",
+        "name" : "Charlotte Linlin",
+        "amount" : 4388000000,
+        "image" : "./images/Linlin.png",
+        "crimes" : ["Piracy", "Child labor", "Forgery"]
+    },
+    {
+        "id" : "8",
+        "wanted-status" : "Only Alive",
+        "name" : "Sanji",
+        "amount" : 1032000000,
+        "image" : "./images/Sanji.png",
+        "crimes" : ["Assault", "Arson", "Robbery"]
+    },
+    {
+        "id" : "9",
+        "wanted-status" : "Only Dead",
+        "name" : "Soul King Brook",
+        "amount" : 383000000,
+        "image" : "./images/Brook.png",
+        "crimes" : ["Piracy", "Identity theft"]
+    },
+    {
+        "id" : "10",
+        "wanted-status" : "Dead or Alive",
+        "name" : "Franky",
+        "amount" : 394000000,
+        "image" : "./images/Franky.png",
+        "crimes" : ["Piracy", "Vandalism"]
+    },
+    {
+        "id" : "11",
+        "wanted-status" : "Only Alive",
+        "name" : "Nami",
+        "amount" : 366000000,
+        "image" : "./images/Nami.png",
+        "crimes" : ["Theft", "Embezzlement"]
+    },
+    {
+        "id" : "12",
+        "wanted-status" : "Dead or Alive",
+        "name" : "Nico Robin",
+        "amount" : 930000000,
+        "image" : "./images/Robin.png",
+        "crimes" : ["Arson", "Espionage"]
+    },
+    {
+        "id" : "13",
+        "wanted-status" : "Only Alive",
+        "name" : "Mr.2 Bon Kurei",
+        "amount" : 32000000,
+        "image" : "./images/Bonclay.png",
+        "crimes" : ["Impersonation", "Forgery"]
+    },
+    {
+        "id" : "14",
+        "wanted-status" : "Dead or Alive",
+        "name" : "Chopper",
+        "amount" : 100,
+        "image" : "./images/Chopper.png",
+        "crimes" : ["Unlicensed medical practice", "Drug trafficking"]
+    },
+    {
+        "id" : "15",
+        "wanted-status" : "Only Alive",
+        "name" : "Jinbe",
+        "amount" : 1100000000,
+        "image" : "./images/Jinbe.png",
+        "crimes" : ["Piracy", "Black market trading"]
+    },
+    {
+        "id" : "16",
+        "wanted-status" : "Dead or Alive",
+        "name" : "God Usopp",
+        "amount" : 200000000,
+        "image" : "./images/Usopp.png",
+        "crimes" : ["Defamation", "Fraud"]
     }
 ]
