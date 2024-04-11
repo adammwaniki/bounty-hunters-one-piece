@@ -14,10 +14,76 @@ body {
     font-size: 12px;
 }
 */
+
+/*carousel*/
+.carousel{
+    margin-top: -50px;/*this is because the header height is 50px which was giving an unsighly black bar so this will allow the image to cover from the top*/
+    
+}
+.carousel .list .list-item img{
+    /*making the images occupy the entire screen*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*fixing the distortion of the image when it fills the screen*/
+}
+.carousel .list .list-item .content{
+    position: absolute;
+    top: 10%; /*a position 20% away from the item*/
+    width: 1140px; /*width on large screens*/
+    max-width: 80%; /*for smaller screens the width will be 80%*/
+    left: 50%;
+    transform: translateX(-50%); /*aligning the content*/
+    padding-right: 30%; /*to shrink the element a bit*/
+    box-sizing: border-box; /*this will prevent the size of the width from changing since we have used width and padding*/
+    color: #fffff3;
+    text-shadow: 0 5px 10px #0004; /*making the text stand out*/
+}
+.carousel .list .list-item .content .criminal-name,
+.carousel .list .list-item .content .bounty-amount{
+    font-weight: bold;
+    font-size: 5em;
+    line-height: 1.3em;
+}
+.carousel .list .list-item .content .wanted-status{
+    font-weight: bolder;
+    font-size: 3.2em;
+    line-height: 1.3em;
+}
+.carousel .list .list-item .content .bounty-amount,
+.carousel .list .list-item .content .des{
+    color: #ea0404;
+    text-shadow: 0 5px 10px #ffe599;
+    font-weight: bold;
+    
+}
+.carousel .list .list-item .content .formDiv{
+    display: inline-flex;
+    gap: 5px;
+}
+.carousel .list .list-item .content .formDiv .comment-form,
+.carousel .list .list-item .content .formDiv .buttons{
+    display: grid;
+    /*grid-template-columns: 140px; *//*making the form and the button have a nice column height although initially i wanted them to be side by side by using repeat(2,140px) but this didn't work because the button is a child of the form so the alignment was bothering me*/
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+    
+}
+
+.carousel .list .list-item .content .formDiv button{
+    background-color: transparent;
+    color: #eee;
+    border: 1px solid #eee;
+    font-weight: bolder;
+    border-radius: 10px;
+}
+
 /*navbar*/
 a{
     text-decoration: none;
-    color: #eee;
+    color: #fffdf3;
+    text-shadow: 0 5px 10px #ffe599;
 }
 header{
     width: 1140px; /*it will default to this width on large screens*/
@@ -49,7 +115,7 @@ header a{
     top: 0;
     left: 0;
     height: 100%;
-    width: 200%; /*double the size of its parent*/
+    width: max-content; /*double the size of its parent*/
     display: grid; /*evenly spacing the thumbnail elements*/
     grid-template-columns: repeat(16, 1fr);
     gap: 20px;
