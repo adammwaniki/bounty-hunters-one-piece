@@ -58,15 +58,38 @@ function checkBoundary(){
 }
 
 
+let currentBountyId = null; // Variable to store the ID of the currently displayed bounty
+/*
+//this one works really well
 // Attach click event listener to each thumbnail item
 thumbnailItems.forEach((thumbnailItem, index) => {
     thumbnailItem.addEventListener("click", () => {
-        const bountyId = index + 1; // because the bounty IDs start from 1
-        fetchBounties(bountyId); // Passing in the bounty ID to fetchBounties function
-        console.log("Clicked thumbnail with ID:", bountyId);
+        const bountyId = index + 1; // Because the bounty IDs start from 1
+        if (bountyId !== currentBountyId) {
+            fetchBounties(bountyId); // Fetch the bounty only if it's different from the currently displayed one
+            currentBountyId = bountyId; // Update the currently displayed bounty ID
+            console.log("Clicked thumbnail with ID:", bountyId);
+        }
     });
 });
+*/
 
+//making a function to handle the click event
+function clickHandler(index) {
+    const bountyId = index + 1; // Because the bounty IDs start from 1
+    if (bountyId !== currentBountyId) {
+        fetchBounties(bountyId); // Fetch the bounty only if it's different from the currently displayed one
+        currentBountyId = bountyId; // Update the currently displayed bounty ID
+        console.log("Clicked thumbnail with ID:", bountyId);
+    }
+}
+
+// Attach click event listener to each thumbnail item
+thumbnailItems.forEach((thumbnailItem, index) => {
+    thumbnailItem.addEventListener("click", () => {
+        clickHandler(index);
+    });
+});
 
 
 function fetchBounties(id) {
@@ -78,6 +101,20 @@ function fetchBounties(id) {
             console.error('Error fetching bounty data:', error);
         });
 }
+//this one doesn't work probably because of how i'm handling the data once it's parsed
+//function fetchBounties(id) {
+    // Fetch data for the specific bounty using its ID
+    //return fetch(`db.json?id=${id}`) 
+        //.then(res => res.json()) 
+        //.then(data => {
+            //const bounty = data.find(item => item.id === id); // Find the bounty with the specified ID
+            //renderBounties(bounty); // Passing in the data for the specific bounty to render function
+        //})
+        //.catch(error => {
+            //console.error('Error fetching bounty data:', error);
+        //});
+//}
+
 
 
 function renderBounties(bounties) {
