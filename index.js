@@ -1,6 +1,7 @@
 let carousel = document.querySelector(".carousel"); //the overarching carousel div
 let thumbs = document.querySelector(".thumbnail"); //the thumbnails
 let thumbnailItem = document.querySelector(".item"); //the individual thumbnails
+let thumbnailItems = document.querySelectorAll(".item"); //all thumbnails
 let bountyContent = document.querySelector("#bountyContent"); //the bounty details that we'll be updating
 let carouselBountyListDiv = document.querySelector("#carouselBountyListDiv"); //the div for all the items in the carousel that we'll be editing 
 
@@ -56,6 +57,7 @@ function checkBoundary(){
     }
 }
 
+/*
 //starting on the fetch api
 function fetchBounties() {
     // Fetch data from the server
@@ -66,6 +68,29 @@ function fetchBounties() {
             console.error('Error fetching bounty data:', error);
         });
 }
+*/
+
+//this one makes sense but i can't get it to work
+// Attach click event listener to each thumbnail item
+//thumbnailItems.forEach((thumbnailItem, index) => {
+//    thumbnailItem.addEventListener("click", () => {
+//        const bountyId = index + 1; // because the bounty IDs start from 1
+//        fetchBounties(bountyId); // Passing in the bounty ID to fetchBounties function
+//    });
+//});
+
+
+
+function fetchBounties(id) {
+    // Fetch data for the specific bounty using its ID
+    return fetch(`db.json?id=${id}`) 
+        .then(res => res.json()) 
+        .then(data => renderBounties(data)) // Passing in the data to render function
+        .catch(error => {
+            console.error('Error fetching bounty data:', error);
+        });
+}
+
 
 function renderBounties(bounties) {
     carouselBountyListDiv.innerHTML = ''; // Clear existing content
@@ -101,20 +126,9 @@ function renderBounties(bounties) {
     });
 }
 
-
-// Select all thumbnail items
-let thumbnailItems = document.querySelectorAll(".item");
-;
-
 // Attach click event listener to each thumbnail item
 thumbnailItems.forEach(thumbnailItem => {
     thumbnailItem.addEventListener("click", //() => {
         fetchBounties() // Call fetchBounties function when clicked
     )});
 //});
-
-
-
-
-
-
