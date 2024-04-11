@@ -57,27 +57,15 @@ function checkBoundary(){
     }
 }
 
-/*
-//starting on the fetch api
-function fetchBounties() {
-    // Fetch data from the server
-    fetch('db.json')
-        .then(res => res.json()) // Parse response as JSON
-        .then(data => renderBounties(data)) // Passing in the data to render function
-        .catch(error => {
-            console.error('Error fetching bounty data:', error);
-        });
-}
-*/
-
 //this one makes sense but i can't get it to work
 // Attach click event listener to each thumbnail item
-//thumbnailItems.forEach((thumbnailItem, index) => {
-//    thumbnailItem.addEventListener("click", () => {
-//        const bountyId = index + 1; // because the bounty IDs start from 1
-//        fetchBounties(bountyId); // Passing in the bounty ID to fetchBounties function
-//    });
-//});
+thumbnailItems.forEach((thumbnailItem, index) => {
+    thumbnailItem.addEventListener("click", () => {
+        const bountyId = index + 1; // because the bounty IDs start from 1
+        fetchBounties(bountyId); // Passing in the bounty ID to fetchBounties function
+        console.log("Clicked thumbnail with ID:", bountyId);
+    });
+});
 
 
 
@@ -95,7 +83,7 @@ function fetchBounties(id) {
 function renderBounties(bounties) {
     carouselBountyListDiv.innerHTML = ''; // Clear existing content
     bounties.forEach(bounty => {
-        carouselBountyListDiv.innerHTML += 
+        carouselBountyListDiv.innerHTML = 
             `
                 <div class="list-item" id="carouselBountyContent">
                     <img id="carouselBackgroundImage" src="${bounty.image}" alt=""> 
@@ -125,10 +113,12 @@ function renderBounties(bounties) {
             `;
     });
 }
-
+//this one wasn't able to return with the ID
 // Attach click event listener to each thumbnail item
-thumbnailItems.forEach(thumbnailItem => {
-    thumbnailItem.addEventListener("click", //() => {
-        fetchBounties() // Call fetchBounties function when clicked
-    )});
+//thumbnailItems.forEach(thumbnailItem => {
+//    thumbnailItem.addEventListener("click", () => {
+//        fetchBounties() // Call fetchBounties function when clicked
+//        console.log("I have been clicked")
+//    });
 //});
+//
