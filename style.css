@@ -35,6 +35,7 @@ header a{
     margin-top: -50px; /*this is because the header height is 50px which was giving an unsighly black bar so this will allow the image to cover from the top*/
     position: relative; /*aligning the items relative to the position of the carousel class instead of the body*/
 }
+
 .carousel .list .list-item{
     position: absolute;
     inset: 0 0 0 0; /*defining the postion with zero distance from the top, left, bottom and right*/
@@ -42,6 +43,7 @@ header a{
 
 .carousel .list .list-item img{
     /*making the images occupy the entire screen*/
+    position: relative;
     width: 100%;
     height: 100%;
     object-fit: cover; /*fixing the distortion of the image when it fills the screen*/

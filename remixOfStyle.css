@@ -2,4 +2,71 @@
     font-family: "Prata", serif;
     font-weight: 400;
     font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+/*
+body {
+    background-color: #000;
+    color: #eee;
+    margin: 0;
+    font-size: 12px;
+}
+*/
+/*navbar*/
+a{
+    text-decoration: none;
+    color: #eee;
+}
+header{
+    width: 1140px; /*it will default to this width on large screens*/
+    max-width: 80%; /*it will not be more than 80% of the screen on smaller screens*/
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative; /*this will allow it to move to the front of the carousel*/
+    z-index: 100; /*this will place it above the carousel*/
+    font-size: 20px;
+}
+header a{
+    margin-right: 40px; /*making space between the navbar items*/
+}
+
+/*carousel*/
+.thumbsSlider {
+    position: absolute;
+    bottom: 50px; /*it will be 50px from the bottom of the carousel*/
+    left: 10%; /*giving it some distance from the max width of the screen*/
+    width: 80%; /*allowing it to be scalable according to the content inside*/
+    height: 220px;
+    overflow: hidden;
+}
+
+.thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200%; /*double the size of its parent*/
+    display: grid; /*evenly spacing the thumbnail elements*/
+    grid-template-columns: repeat(16, 1fr);
+    gap: 20px;
+    pointer-events: none;
+}
+
+.thumbnail .item{/*for the content inside the thumbnials*/
+    width: 150px;
+    height: 220px;
+    /*flex-shrink: 0;*/ /*so that the size doesn't shrink on small screens*/
+    /*position: relative;*/ /*so that the content inside it can rely on it to move positions*/
+}
+
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
