@@ -91,7 +91,7 @@ thumbnailItems.forEach((thumbnailItem, index) => {
     });
 });
 
-
+fetchBounties(1);
 function fetchBounties(id) {
     // Fetch data for the specific bounty using its ID
     return fetch(`db.json?id=${id}`) 
@@ -158,4 +158,6 @@ function renderBounties(bounties) {
 //        console.log("I have been clicked")
 //    });
 //});
-//
+
+//making a function to allow us to append 
+
