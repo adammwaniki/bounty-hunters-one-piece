@@ -15,12 +15,12 @@ carousel.addEventListener("mousedown" , (e) =>{
 carousel.addEventListener("mouseenter", ()=>{
     carousel.style.cursor = "grab"
 });
-/*
+
 //this one's not exactly necessary based on what i can see
-carousel.addEventListener("mouseleave", ()=>{
-    carousel.style.cursor = "default"
-})
-*/
+//carousel.addEventListener("mouseleave", ()=>{
+    //carousel.style.cursor = "default"
+//})
+//
 
 carousel.addEventListener("mouseup", ()=>{
     carousel.style.cursor = "grab"
