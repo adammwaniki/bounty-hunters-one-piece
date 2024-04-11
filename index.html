@@ -23,13 +23,13 @@
         <!--carousel-->
         <div class="carousel">
             <!--list item-->
-            <div class="list">
-                <div class="list-item">
-                    <img id="carouselBackgroundImage" src="images/Roger.png"> <!--this seems to be causing conflict with the mouseenter grab in js, debug it in the morning-->
-                    <div class="content">
+            <div class="list" id="carouselBountyListDiv">
+                <div class="list-item" id="carouselBountyContent">
+                    <img id="carouselBackgroundImage" src="images/Roger.png" alt=""> <!--this seems to be causing conflict with the mouseenter grab in js, debug it in the morning-->
+                    <div class="content" id="bountyContent">
                         <div class="wanted-status">DEAD OR ALIVE</div>
                         <div class="criminal-name">GOL. D. ROGER</div>
-                        <div class="bounty-amount">$5564800000</div>
+                        <div class="bounty-amount" id="bounty-amount">$5564800000</div>
                         <div class="des">
                             description of all the crimes they have commited
                         </div>
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <!--thumbnail-->
-            <div class="thumbsSlider">
+            <!--<div class="thumbsSlider">-->
             <div class="thumbnail">
                 <div class="item active" id="roger">
                     <img src="images/thumbs/One piece bounties cropped/Gol_D_Roger_Wanted_Poster.png " alt="Gol D Roger Wanted Poster">
@@ -150,7 +150,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+            <!--</div>-->
         </div>
         <script src="index.js"></script>
     </body>

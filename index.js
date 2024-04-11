@@ -1,6 +1,8 @@
 let carousel = document.querySelector(".carousel"); //the overarching carousel div
 let thumbs = document.querySelector(".thumbnail"); //the thumbnails
 let thumbnailItem = document.querySelector(".item"); //the individual thumbnails
+let bountyContent = document.querySelector("#bountyContent"); //the bounty details that we'll be updating
+let carouselBountyListDiv = document.querySelector("#carouselBountyListDiv"); //the div for all the items in the carousel that we'll be editing 
 
 let pressed = false;
 let startX;
@@ -16,7 +18,7 @@ carousel.addEventListener("mouseenter", ()=>{
     carousel.style.cursor = "grab"
 });
 
-//this one's not exactly necessary based on what i can see
+//this one's not fixing the bug because of the conflict being caused by the background image which actually covers the carousel and not the body
 //carousel.addEventListener("mouseleave", ()=>{
     //carousel.style.cursor = "default"
 //})
@@ -55,4 +57,64 @@ function checkBoundary(){
 }
 
 //starting on the fetch api
+function fetchBounties() {
+    // Fetch data from the server
+    fetch('db.json')
+        .then(res => res.json()) // Parse response as JSON
+        .then(data => renderBounties(data)) // Passing in the data to render function
+        .catch(error => {
+            console.error('Error fetching bounty data:', error);
+        });
+}
+
+function renderBounties(bounties) {
+    carouselBountyListDiv.innerHTML = ''; // Clear existing content
+    bounties.forEach(bounty => {
+        carouselBountyListDiv.innerHTML += 
+            `
+                <div class="list-item" id="carouselBountyContent">
+                    <img id="carouselBackgroundImage" src="${bounty.image}" alt=""> 
+                    <div class="content" id="bountyContent">
+                        <div class="wanted-status">${bounty.wantedStatus}</div>
+                        <div class="criminal-name">${bounty.name}</div>
+                        <div class="bounty-amount" id="bounty-amount">$ ${bounty.amount}</div>
+                        <div class="des">
+                            Crimes: ${bounty.crimes.join(', ')} <!--let me see if this will return the array as a string-->
+                        </div>
+                        <div class="formDiv">
+                            <form id="comment-form" class="comment-form">
+                                <input
+                                class="comment-input"
+                                type="text"
+                                name="comment"
+                                id="comment"
+                                placeholder="Add a crime..."
+                                />
+                            </form>
+                            <div class="buttons">
+                                <button class="comment-button" type="submit">POST</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+    });
+}
+
+
+// Select all thumbnail items
+let thumbnailItems = document.querySelectorAll(".item");
+;
+
+// Attach click event listener to each thumbnail item
+thumbnailItems.forEach(thumbnailItem => {
+    thumbnailItem.addEventListener("click", //() => {
+        fetchBounties() // Call fetchBounties function when clicked
+    )});
+//});
+
+
+
+
+
 
