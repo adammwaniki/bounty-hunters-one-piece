@@ -57,7 +57,7 @@ function checkBoundary(){
     }
 }
 
-//this one makes sense but i can't get it to work
+
 // Attach click event listener to each thumbnail item
 thumbnailItems.forEach((thumbnailItem, index) => {
     thumbnailItem.addEventListener("click", () => {
