@@ -6,6 +6,7 @@ let thumbnailItems = document.querySelectorAll(".item"); //all thumbnails
 let bountyContent = document.querySelector("#bountyContent"); //the bounty details that we'll be updating
 let carouselBountyListDiv = document.querySelector("#carouselBountyListDiv"); //the div for all the items in the carousel that we'll be editing 
 let carouselBackgroundImage = document.querySelector("#carouselBackgroundImage")
+const commentForm = document.getElementById('comment-form');
 let body = document.querySelector("body")
 
 let pressed = false;
@@ -80,21 +81,43 @@ thumbnailItems.forEach((thumbnailItem, index) => {
     });
 });
 
-fetchBounties(1); //allowing the first thumbnail to load its details when the page loads
+//declaring a fetch API for all the data on the page
+function fetchBounties(id) {
+    console.log(id);
+    // Fetch data for the specific bounty using its ID
+    fetch(`db.json`) 
+        .then(res => res.json()) //parses the json data into a js object
+        .then(data => {
+            const bounty = data.find(bounty => bounty.id === id)
+            //const bounty = data.filter(bounty => bounty.id === id)[0];
+            console.log(`Bounty data:`, data);
+            console.log(`Found bounty:`, bounty);
+            renderBounties(bounty)
+        })
+        
+        .catch(error => {
+            console.error('Error fetching bounty data:', error);
+        });
+        
+}
+/*
+//fetchBounties(1); //allowing the first thumbnail to load its details when the page loads
 function fetchBounties(id) {
     // Fetch data for the specific bounty using its ID
     return fetch(`db.json?id=${id}`) 
-        .then(res => res.json()) 
+        .then(res => res.json()) //parses the json data into a js object
         .then(data => renderBounties(data)) // Passing in the data to render function
+        
         .catch(error => {
             console.error('Error fetching bounty data:', error);
         });
 }
+*/
 
 //function to render the bounties
-function renderBounties(bounties) {
+function renderBounties(bounty) {
     carouselBountyListDiv.innerHTML = ''; // Clear existing content
-    bounties.forEach(bounty => {
+    //bounty => {
         carouselBountyListDiv.innerHTML = 
             `
                 <div class="list-item" id="carouselBountyContent">
@@ -126,15 +149,65 @@ function renderBounties(bounties) {
 
             //using style method to make the carouselBackgroundImage be the background image
             //body.style.backgroundImage = `url('${bounty.image}')`;
-
+    //}
+    //bounty();
+    //});
+    //handleCrimeSubmission(currentBountyId, bounty);
+    // Handle crime submission when the comment form is submitted
+    commentForm.addEventListener('submit', event => {
+        event.preventDefault(); // Prevent the default form submission behavior
+        const commentInput = document.getElementById('comment');
+        const crime = commentInput.value.trim(); // Get the crime input value and trim whitespace
+        if (crime) {
+            appendCrimeToBounty(currentBountyId, crime); // Pass the currentBountyId and the crime
+            commentInput.value = ''; // Clear the input field after submitting
+        } else {
+            console.log('Please enter a crime.'); // Optionally, provide feedback if the input is empty
+        }
     });
-    handleCrimeSubmission(currentBountyId, bounties);
+}
+
+// Function to append a crime to the array of crimes for the current bounty
+function appendCrimeToBounty(bountyId, crime) {
+    const currentBounty = bounties.find(bounty => bounty.id === bountyId);
+    if (currentBounty) {
+        currentBounty.crimes.push(crime); // Append the crime to the array of crimes for the current bounty
+        renderBounties(currentBounty); // Re-render the bounty details to reflect the updated crimes
+    } else {
+        console.error(`Bounty with ID ${bountyId} not found.`);
+    }
+}
+    /*
+    appendCrimeToBounty(bountyId, crime, bounties);
 }
 
 
 //debug from here
+const commentInput = document.getElementById('comment');
+const crime = commentInput.value.trim();
+
+commentForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const crime = commentInput.value.trim();
+    appendCrimeToBounty(bountyId, crime, bounties);
+    commentInput.value = '';
+});
+
+function appendCrimeToBounty(bountyId, crime, bounties) {
+    const currentBounty = bounties.find(bounty => bounty.id === bountyId);
+    if (currentBounty) {
+        currentBounty.crimes.push(crime);
+        renderBounties(bounties);
+    } else {
+        console.error(`Bounty with ID ${bountyId} not found.`);
+    }
+}
+*/
+
+
+/*
 // Function to append a crime to the array of crimes for the current bounty and set up the event listener for the crime form
-function handleCrimeSubmission(bountyId, bounties) {
+function handleCrimeSubmission(bountyId, bounty) {
     const commentForm = document.getElementById('comment-form');
     const commentInput = document.getElementById('comment');
     const btn = document.querySelector(".comment-button")
@@ -145,7 +218,7 @@ function handleCrimeSubmission(bountyId, bounties) {
         const crime = commentInput.value.trim(); // Get the crime input value and trim whitespace
 
         if (crime) {
-            appendCrimeToBounty(bountyId, crime, bounties); // Call the function to append the crime to the bounty
+            appendCrimeToBounty(bountyId, crime, bounty); // Pass the bounty object instead of bounties
             commentInput.value = ''; // Clear the input field after submitting
         } else {
             console.log('Please enter a crime.'); // Optionally, provide feedback if the input is empty
@@ -153,17 +226,19 @@ function handleCrimeSubmission(bountyId, bounties) {
     });
 }
 
+
 // Function to append a crime to the array of crimes for the current bounty
-function appendCrimeToBounty(bountyId, crime, bounties) {
-    const currentBounty = bounties.find(bounty => bounty.id === bountyId);
+function appendCrimeToBounty(bountyId, crime, bounty) {
+    const currentBounty = bounty.find(bounty => bounty.id === bountyId);
 
     if (currentBounty) {
         currentBounty.crimes.push(crime); // Append the crime to the array of crimes for the current bounty
-        renderBounties(bounties); // Re-render the bounty details to reflect the updated crimes
+        renderBounties(bountyId, bounty); // Pass both the bountyId and the updated bounty object
     } else {
         console.error(`Bounty with ID ${bountyId} not found.`);
     }
 }
+*/
 
 /*
 //this one works really well

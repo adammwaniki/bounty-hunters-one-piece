@@ -17,9 +17,10 @@ body {
 
 /*carousel*/
 .carousel{
-    margin-top: -50px;/*this is because the header height is 50px which was giving an unsighly black bar so this will allow the image to cover from the top*/
+    margin-top: -50px; /*this is because the header height is 50px which was giving an unsighly black bar so this will allow the image to cover from the top*/
     
 }
+
 .carousel .list .list-item img{
     /*making the images occupy the entire screen*/
     position: absolute;
@@ -119,7 +120,8 @@ header a{
     display: grid; /*evenly spacing the thumbnail elements*/
     grid-template-columns: repeat(16, 1fr);
     gap: 20px;
-    pointer-events: none;
+    /*pointer-events: none;*/
+    
 }
 
 .thumbnail .item{/*for the content inside the thumbnials*/
