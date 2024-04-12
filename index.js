@@ -80,7 +80,7 @@ thumbnailItems.forEach((thumbnailItem, index) => {
     });
 });
 
-fetchBounties(1);
+fetchBounties(1); //allowing the first thumbnail to load its details when the page loads
 function fetchBounties(id) {
     // Fetch data for the specific bounty using its ID
     return fetch(`db.json?id=${id}`) 
@@ -125,7 +125,7 @@ function renderBounties(bounties) {
             `;
 
             //using style method to make the carouselBackgroundImage be the background image
-            body.style.backgroundImage = `url('${bounty.image}')`;
+            //body.style.backgroundImage = `url('${bounty.image}')`;
 
     });
     handleCrimeSubmission(currentBountyId, bounties);
